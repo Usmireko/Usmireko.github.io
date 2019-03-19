@@ -1894,7 +1894,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3d3cff;
+  background: #695ee5;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3198,7 +3198,7 @@ ul.breadcrumb li+li:last-child {
   }
 }
 body {
-  background-image: url("http://web.zcjun.com/background/random_img");
+  background-image: url("/images/123.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
