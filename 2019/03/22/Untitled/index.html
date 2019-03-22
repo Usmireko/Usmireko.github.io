@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前面几位dalao已经把如何搭建博客以及一些基础设置讲的足够明白了，因此这里就不再提及了。本菜鸡在搭完博客后还想进一步优化博客，然后就一jio栽进坑里。 1.开始优化前的准备—-hexo-admin我是不太喜欢直接在.md文件里写博客的，如果语法出了问题，改起来很麻烦。使用hexo-admin插件可以简便的管理文章。 下面#define AD hexo-admin AD官网 在Git Bash中输">
+<meta name="keywords" content="代码,博客搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo的伪进阶教程">
+<meta property="og:url" content="http://yoursite.com/2019/03/22/Untitled/index.html">
+<meta property="og:site_name" content="Usmirekoのblog">
+<meta property="og:description" content="前面几位dalao已经把如何搭建博客以及一些基础设置讲的足够明白了，因此这里就不再提及了。本菜鸡在搭完博客后还想进一步优化博客，然后就一jio栽进坑里。 1.开始优化前的准备—-hexo-admin我是不太喜欢直接在.md文件里写博客的，如果语法出了问题，改起来很麻烦。使用hexo-admin插件可以简便的管理文章。 下面#define AD hexo-admin AD官网 在Git Bash中输">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.loli.net/2019/03/21/5c9319bf33ad8.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/20/5c91cc6a68fd3.png">
+<meta property="og:image" content="http://s1.wailian.download/2018/01/14/article_20180114.png">
+<meta property="og:image" content="https://i.loli.net/2019/03/21/5c93a9496dd20.gif">
+<meta property="og:updated_time" content="2019-03-22T13:27:07.146Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo的伪进阶教程">
+<meta name="twitter:description" content="前面几位dalao已经把如何搭建博客以及一些基础设置讲的足够明白了，因此这里就不再提及了。本菜鸡在搭完博客后还想进一步优化博客，然后就一jio栽进坑里。 1.开始优化前的准备—-hexo-admin我是不太喜欢直接在.md文件里写博客的，如果语法出了问题，改起来很麻烦。使用hexo-admin插件可以简便的管理文章。 下面#define AD hexo-admin AD官网 在Git Bash中输">
+<meta name="twitter:image" content="https://i.loli.net/2019/03/21/5c9319bf33ad8.png">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/22/Untitled/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Hexo的伪进阶教程 | Usmirekoのblog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Usmirekoのblog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">闪耀在世界尽头</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/22/Untitled/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Usmireko">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/59422378_p0_master200.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Usmirekoのblog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Hexo的伪进阶教程
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-22 21:26:00 / 修改时间：21:27:07" itemprop="dateCreated datePublished" datetime="2019-03-22T21:26:00+08:00">2019-03-22</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/" itemprop="url" rel="index"><span itemprop="name">代码</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/代码/博客搭建/" itemprop="url" rel="index"><span itemprop="name">博客搭建</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/22/Untitled/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/22/Untitled/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">5.5k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">5 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前面几位dalao已经把如何搭建博客以及一些基础设置讲的足够明白了，因此这里就不再提及了。本菜鸡在搭完博客后还想进一步优化博客，<del>然后就一jio栽进坑里</del>。</p>
+<h2 id="1-开始优化前的准备—-hexo-admin"><a href="#1-开始优化前的准备—-hexo-admin" class="headerlink" title="1.开始优化前的准备—-hexo-admin"></a>1.开始优化前的准备—-hexo-admin</h2><p>我是不太喜欢直接在.md文件里写博客的，如果语法出了问题，改起来很麻烦。使用hexo-admin插件可以简便的管理文章。</p>
+<p>下面#define AD hexo-admin</p>
+<p><a href="https://jaredforsyth.com/hexo-admin/" target="_blank" rel="noopener">AD官网</a></p>
+<p>在Git Bash中输入<br>npm install –save hexo-admin<br>安装完之后先检查一下<br>在GitBash中输入<br>hexo server -d 启动服务器<br>在浏览器中打开 <a href="http://localhost:4000/admin/" target="_blank" rel="noopener">http://localhost:4000/admin/</a><br>它是这个样子<br><img src="https://i.loli.net/2019/03/21/5c9319bf33ad8.png" alt><br>如果想加个用户名和密码啥的，打开hexo根目录配置文件      </p>
+<pre><code>admin:
+
+username://用户名
+
+password_hash://用户名密码不喜欢的可以不设置，这里通过bcrypt hash
+
+secret: hey hexo deploy//用以cookies安全；
+
+Command: 
+
+</code></pre><p>点击博客编辑页面右上角的“+”，就可以方便的添加标签和分类了<br>之后的所有步骤都可以使用AD创建测试页    </p>
+<h2 id="2-搭建完博客之后马上就会遇到的部分问题-有一定概率发生"><a href="#2-搭建完博客之后马上就会遇到的部分问题-有一定概率发生" class="headerlink" title="2.搭建完博客之后马上就会遇到的部分问题(有一定概率发生)"></a>2.搭建完博客之后马上就会遇到的部分问题(有一定概率发生)</h2><h3 id="没有分类"><a href="#没有分类" class="headerlink" title="没有分类"></a>没有分类</h3><p>打开 主题文件夹/_config.yml,在其中找到”menu”，将”#categories: /categories/ || th”的#删除，重新加载博客即可</p>
+<h3 id="关于-标签-分类不能使用"><a href="#关于-标签-分类不能使用" class="headerlink" title="关于,标签,分类不能使用"></a>关于,标签,分类不能使用</h3><p>这里指的不能使用是指在点击标签等按钮时弹出以下页面:</p>
+<h3 id="Cannot-GET-tags"><a href="#Cannot-GET-tags" class="headerlink" title="Cannot GET /tags/"></a>Cannot GET /tags/</h3><p>在Git Bash中输入 hexo new page tags<br>确认站点配置文件里有 tag_dir: tags<br>确认主题配置文件里有 tags: /tags<br>点开博客文件夹 /source/tags/index.md<br>此时它应该是这样的:<br><img src="https://i.loli.net/2019/03/20/5c91cc6a68fd3.png" alt><br>在开头和结尾的”—“中间加入:      </p>
+<pre><code>title: &quot;tags&quot;        
+type: tags   
+</code></pre><h4 id="然后另存为当前文件夹-如果在index文件里有中文字符，则一定注意编码选择UTF-8"><a href="#然后另存为当前文件夹-如果在index文件里有中文字符，则一定注意编码选择UTF-8" class="headerlink" title="然后另存为当前文件夹(如果在index文件里有中文字符，则一定注意编码选择UTF-8)"></a>然后另存为当前文件夹(如果在index文件里有中文字符，则一定注意编码选择UTF-8)</h4><p>分类和关于同上</p>
+<h3 id="hexo-g之后hexo-d，博客没有更新内容"><a href="#hexo-g之后hexo-d，博客没有更新内容" class="headerlink" title="hexo g之后hexo d，博客没有更新内容"></a>hexo g之后hexo d，博客没有更新内容</h3><p>很奇葩的一个问题，但是的确坑到了我<br>解决办法:hexo g-&gt;hexo d-&gt;hexo g-&gt;hexo d<br>很暴力但是很有用，在第二遍hexo d时可以看见有新的改变添加到博客中<br><del>个人觉得是hexo g有时会偷懒</del>        </p>
+<h4 id="upd-3-22更新-hexo-g问题"><a href="#upd-3-22更新-hexo-g问题" class="headerlink" title="upd  3-22更新   hexo g问题"></a>upd  3-22更新   hexo g问题</h4><p>下面介绍的两种自动发布博客的方法解决了hexo g的问题      </p>
+<h2 id="3-开始优化"><a href="#3-开始优化" class="headerlink" title="3.开始优化"></a>3.开始优化</h2><p>终于可以开始优化了</p>
+<h3 id="实现自动发布文章"><a href="#实现自动发布文章" class="headerlink" title="实现自动发布文章"></a>实现自动发布文章</h3><p>这里使用给出linux系统和windows系统下的不同处理方式</p>
+<h4 id="linux使用admin-脚本实现"><a href="#linux使用admin-脚本实现" class="headerlink" title="linux使用admin+脚本实现"></a>linux使用admin+脚本实现</h4><p>在hexo根目录编辑文件里加入 </p>
+<pre><code>Command: &#39;./admin_script/hexo-generate.sh&#39; # expire: 60*1
+</code></pre><p>在根目录新建admin_script，文件夹，进入执行        </p>
+<pre><code>touch hexo-generate.sh;
+vim hexo-generate.sh;
+</code></pre><p>输入          </p>
+<pre><code>#!/usr/bin/env sh
+hexo clean
+hexo g  -d//有什么其他想自动化的操作也可以写进去
+</code></pre><p>修改权限        </p>
+<pre><code>chmod +x hexo-generate.sh
+</code></pre><h4 id="windows使用-bat实现"><a href="#windows使用-bat实现" class="headerlink" title="windows使用.bat实现"></a>windows使用.bat实现</h4><p>在hexo安装目录下新建deploy.bat,输入      </p>
+<pre><code>call cd source/_posts
+git pull origin master
+cd ../../   
+hexo g -d
+
+</code></pre><p>测试一下:双击.bat<br>然后等一会。。。。  </p>
+<h3 id="评论区"><a href="#评论区" class="headerlink" title="评论区"></a>评论区</h3><p>这里使用Valine实现<br>注：由于next主题自带Valine，所以配置起来可能和其他主题不同    </p>
+<h4 id="注册Leancloud"><a href="#注册Leancloud" class="headerlink" title="注册Leancloud"></a>注册Leancloud</h4><p><a href="https://leancloud.cn/" target="_blank" rel="noopener">官网</a><br>注册完以后需要创建一个应用，名字可以随便起，然后 进入应用-&gt;设置-&gt;应用key，<br>获取你的appid 和 appkey<br><img src="http://s1.wailian.download/2018/01/14/article_20180114.png" alt>     </p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>打开/theme/_config.yml<br>找到valine行          </p>
+<pre><code>valine:
+  enable: true
+  appid:  your app id
+  appkey: your app key
+  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+  verify: false # Verification code
+  placeholder: 在这里输入评论daze~
+  guest_info: nick,mail,link
+  pageSize: 10
+
+</code></pre><p>打开Leancloud -&gt; 设置 -&gt; 安全中心 -&gt; Web  安全域名里填博客链接地址<br>hexo g  hexo d<br>然后就可以<del>被吐槽了</del></p>
+<h2 id="4-开始美化"><a href="#4-开始美化" class="headerlink" title="4.开始美化"></a>4.开始美化</h2><p>美化才是最费时最费力的<br>可能会用到一定的css&amp;html&amp;ps基础</p>
+<h3 id="随机图片背景"><a href="#随机图片背景" class="headerlink" title="随机图片背景"></a>随机图片背景</h3><p>由于本菜鸡不会html,所以只能用随机图片接口QAQ<br>如果有神仙知道请一定要指导一下  </p>
+<h3 id="背景图片轮播"><a href="#背景图片轮播" class="headerlink" title="背景图片轮播"></a>背景图片轮播</h3><p>使用jquery-backstretch插件实现<br>下面#define JQ jquery-backstretch        </p>
+<h4 id="JQ–引用JQ插件"><a href="#JQ–引用JQ插件" class="headerlink" title="JQ–引用JQ插件"></a>JQ–引用JQ插件</h4><p>打开 themes\next\layout_custom\custom-foot.swig <del>没有？新建一个啊</del>      </p>
+<pre><code>&lt;!-- 图片轮播js文件cdn --&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;!-- 自定义的js文件 --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/custom.js&quot;&gt;&lt;/script&gt;
+
+</code></pre><p>打开themes\next\source\js\src\custom.js </p>
+<pre><code>$(function () {
+    $.backstretch([  
+    。。。。
+    ], { duration: 60000, fade: 1500 });  
+});
+
+</code></pre><p>。。。。处填图片地址，duration是轮播时间，fade是指轮换图片花费的时间。    </p>
+<h3 id="代码高亮"><a href="#代码高亮" class="headerlink" title="代码高亮"></a>代码高亮</h3><p>hexo自带的代码高亮已经能够满足大部分OIer的需求，但是对于像我们机房的VCode这种<del>精通十六国语言</del>的人来说，这种代码高亮是远远不够的。这里只介绍Google Prettify，其他像highlight的请类比或自行百度。<br>打开/博客根目录/_config.yml<br>找到highlight一行，将其改为       </p>
+<pre><code>highlight:
+  enable: false
+  line_number: false
+  auto_detect: false
+  tab_replace:
+</code></pre><p><a href="https://github.com/google/code-prettify" target="_blank" rel="noopener">下载prettify</a><br>下载后解压到theme/next/source/lib文件夹中(推荐将文件夹重命名为Prettify)<br><a href="http://jmblog.github.io/color-themes-for-google-code-prettify/" target="_blank" rel="noopener">选一个自己喜欢的主题吧！</a><br>下载自己喜欢的主题文件到lib/prettify/skins目录下。<br>在主题的layout/_third-party目录下创建prettify.swig文件，添加以下代码       </p>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;/lib/prettify/skins/{{ theme.custom_highlight_theme }}.css&quot; type=&quot;text/css&quot;&gt;
+&lt;script src=&quot;/lib/prettify/prettify.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+  $(document).ready(function() {
+      $(&#39;pre&#39;).addClass(&#39;prettyprint linenums&#39;).attr(&#39;style&#39;, &#39;overflow:auto;&#39;);
+      prettyPrint();
+  });
+&lt;/script&gt;
+</code></pre><p>修改主题layout目录下的_layout.swig文件，在合适的地方（在&lt; body &gt;里面）添加：    </p>
+<pre><code>{% include '_third-party/prettify.swig' %}
+</code></pre><p>修改主题的_config.yml文件，添加一行：</p>
+<pre><code> custom_highlight_theme: 。。。
+</code></pre><p>。。。是主题名    </p>
+<h3 id="动态交互式背景"><a href="#动态交互式背景" class="headerlink" title="动态交互式背景"></a>动态交互式背景</h3><p><del>其实这东西对密集恐惧症不友好</del>打开/themes/_config.yml,找到以下代码   </p>
+<pre><code># three_waves
+three_waves: false
+# canvas_lines
+canvas_lines: false
+# canvas_sphere
+canvas_sphere: false
+</code></pre><p>这是自带的三种动态交互式背景      </p>
+<h4 id="针对canvas-lines线条颜色过淡的解决办法"><a href="#针对canvas-lines线条颜色过淡的解决办法" class="headerlink" title="针对canvas_lines线条颜色过淡的解决办法"></a>针对canvas_lines线条颜色过淡的解决办法</h4><p>这里使用暴力<br>打开/themes/source/lib/three/canvas_lines.min.js<br>爆炸吧！！！！！<br>（由于原图太爆炸无法显示，在这里以部分代码的形式展现）  </p>
+<pre><code>this.color=new THREE.Color(16777215),this.program=function(e,t){},this.setValues(e)},
+THREE.SpriteCanvasMaterial.prototype=Object.create(THREE.Material.prototype),
+THRE.SpriteCanvasMaterial.prototype.constructor=THREE.SpriteCanvasMaterial,THREE.SpriteCanvas
+Material.prototype.clone=function(){var e=new THREE.SpriteCanvasMaterial;return e.copy(this),e.color.copy(this.color),
+e.program=this.program,e},THREE.Canva 
+</code></pre><p>所以说刚点开时会有非同一般的视觉冲击感。<br>但是，请看第一行开头括号里的数字<br>这串数字就是颜色的10进制码！(我的是改过的，没有改过的应该是灰白色对应的码)<br>然后暴力把颜色码替换成想要的颜色码就可以了(鬼知道我是怎么搞出来的)</p>
+<h3 id="L2d设置-z16我tm吹爆"><a href="#L2d设置-z16我tm吹爆" class="headerlink" title="L2d设置(z16我tm吹爆!)"></a>L2d设置(z16我tm吹爆!)</h3><p><del>ei you wo cao，zhe shi hao de</del><br>先选择自己<del>社保</del>喜欢的小姐姐，记好名字 <a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">预览</a><br>这里以z16为例<br>先在Git Bash里输入npm install –save hexo-helper-live2d<br>然后打开/theme/_config.yml<br>添加以下代码(名字自行更换)     </p>
+<pre><code>live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-z16
+  display:
+    position: right
+    width: 150
+    height: 300
+  mobile:
+    show: true
+
+</code></pre><p>下载模型    </p>
+<pre><code>npm install live2d-widget-model-z16
+</code></pre><p>下载完之后，在博客根目录中新建文件夹live2d_models，然后在node_modules文件夹中找到刚刚下载的live2d模型，将其复制到live2d_models中，然后打开博客根目录下的——config.yml，找到model.use项，将其修改为live2d_models文件夹中的模型文件夹名称。<br>然后！！！！！！！！！<br>(这里有张z16小姐姐的gif图)<br>(为了防止部分小朋友康不到,特在此说明)<br><img src="https://i.loli.net/2019/03/21/5c93a9496dd20.gif" alt><br><del>我哭了</del> </p>
+<h2 id="5-完结撒花未完待续"><a href="#5-完结撒花未完待续" class="headerlink" title="5.完结撒花未完待续"></a>5.<del>完结撒花</del>未完待续</h2><p>或许以后会填上的坑<br>自定义域名<br>更换服务器<br>静态博客压缩<br>鼠标样式和点击样式<br><del>好了我去打春雪篇了</del>      </p>
+<h2 id="TO-BE-CONTINUED"><a href="#TO-BE-CONTINUED" class="headerlink" title="TO BE CONTINUED"></a>TO BE CONTINUED</h2>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/代码/" rel="tag"># 代码</a>
+          
+            <a href="/tags/博客搭建/" rel="tag"># 博客搭建</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/12/回文自动机/" rel="next" title="回文自动机">
+                <i class="fa fa-chevron-left"></i> 回文自动机
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/59422378_p0_master200.png" alt="Usmireko">
+            
+              <p class="site-author-name" itemprop="name">Usmireko</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">2</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Usmireko" title="GitHub &rarr; https://github.com/Usmireko" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:Usmireko@gmail.com" title="E-Mail &rarr; mailto:Usmireko@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://twitter.com/Usmireko" title="Twitter &rarr; https://twitter.com/Usmireko" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://youtube.com/Usmireko" title="YouTube &rarr; https://youtube.com/Usmireko" rel="noopener" target="_blank"><i class="fa fa-fw fa-youtube"></i>YouTube</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://www.luogu.org/space/show?uid=156761" title="luogu &rarr; https://www.luogu.org/space/show?uid=156761" rel="noopener" target="_blank"><i class="fa fa-fw fa-code"></i>luogu</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.luogu.org/space/show?uid=49866" title="https://www.luogu.org/space/show?uid=49866" rel="noopener" target="_blank">mxy神仙</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.luogu.org/space/show?uid=53241" title="https://www.luogu.org/space/show?uid=53241" rel="noopener" target="_blank">partychicken神仙</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.luogu.org/space/show?uid=50954" title="https://www.luogu.org/space/show?uid=50954" rel="noopener" target="_blank">九条可瘤!</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://vcode28629.coding.me/" title="https://vcode28629.coding.me/" rel="noopener" target="_blank">VCode AK IOI</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.luogu.org/space/show?uid=24608" title="https://www.luogu.org/space/show?uid=24608" rel="noopener" target="_blank">wby天下第一</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.luogu.org/team/show?teamid=8147" title="https://www.luogu.org/team/show?teamid=8147" rel="noopener" target="_blank">日常广告</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.luogu.org/space/show?uid=3296" title="https://www.luogu.org/space/show?uid=3296" rel="noopener" target="_blank">那个传说中的女孩子</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-开始优化前的准备—-hexo-admin"><span class="nav-number">1.</span> <span class="nav-text">1.开始优化前的准备—-hexo-admin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-搭建完博客之后马上就会遇到的部分问题-有一定概率发生"><span class="nav-number">2.</span> <span class="nav-text">2.搭建完博客之后马上就会遇到的部分问题(有一定概率发生)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#没有分类"><span class="nav-number">2.1.</span> <span class="nav-text">没有分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于-标签-分类不能使用"><span class="nav-number">2.2.</span> <span class="nav-text">关于,标签,分类不能使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cannot-GET-tags"><span class="nav-number">2.3.</span> <span class="nav-text">Cannot GET /tags/</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#然后另存为当前文件夹-如果在index文件里有中文字符，则一定注意编码选择UTF-8"><span class="nav-number">2.3.1.</span> <span class="nav-text">然后另存为当前文件夹(如果在index文件里有中文字符，则一定注意编码选择UTF-8)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hexo-g之后hexo-d，博客没有更新内容"><span class="nav-number">2.4.</span> <span class="nav-text">hexo g之后hexo d，博客没有更新内容</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#upd-3-22更新-hexo-g问题"><span class="nav-number">2.4.1.</span> <span class="nav-text">upd  3-22更新   hexo g问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-开始优化"><span class="nav-number">3.</span> <span class="nav-text">3.开始优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现自动发布文章"><span class="nav-number">3.1.</span> <span class="nav-text">实现自动发布文章</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#linux使用admin-脚本实现"><span class="nav-number">3.1.1.</span> <span class="nav-text">linux使用admin+脚本实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#windows使用-bat实现"><span class="nav-number">3.1.2.</span> <span class="nav-text">windows使用.bat实现</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评论区"><span class="nav-number">3.2.</span> <span class="nav-text">评论区</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注册Leancloud"><span class="nav-number">3.2.1.</span> <span class="nav-text">注册Leancloud</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">3.3.</span> <span class="nav-text">修改配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-开始美化"><span class="nav-number">4.</span> <span class="nav-text">4.开始美化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#随机图片背景"><span class="nav-number">4.1.</span> <span class="nav-text">随机图片背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景图片轮播"><span class="nav-number">4.2.</span> <span class="nav-text">背景图片轮播</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JQ–引用JQ插件"><span class="nav-number">4.2.1.</span> <span class="nav-text">JQ–引用JQ插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码高亮"><span class="nav-number">4.3.</span> <span class="nav-text">代码高亮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态交互式背景"><span class="nav-number">4.4.</span> <span class="nav-text">动态交互式背景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#针对canvas-lines线条颜色过淡的解决办法"><span class="nav-number">4.4.1.</span> <span class="nav-text">针对canvas_lines线条颜色过淡的解决办法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#L2d设置-z16我tm吹爆"><span class="nav-number">4.5.</span> <span class="nav-text">L2d设置(z16我tm吹爆!)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-完结撒花未完待续"><span class="nav-number">5.</span> <span class="nav-text">5.完结撒花未完待续</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TO-BE-CONTINUED"><span class="nav-number">6.</span> <span class="nav-text">TO BE CONTINUED</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Usmireko</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">9k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点阅读时长">8 分钟</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v6.7.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  <script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  <script>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item) > -1;
+    });
+    new Valine({
+      el: '#comments' ,
+      verify: false,
+      notify: false,
+      appId: 'f7JY3wv4XJmMp7kgrifWWHHp-gzGzoHsz',
+      appKey: 'wbcJMJ61z4r0id2PCJPrv9ml',
+      placeholder: '在这里输入评论daze~',
+      avatar: 'mm',
+      meta:guest,
+      pageSize: '10' || 10,
+      visitor: false
+    });
+  </script>
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap');
+      $(e).after($wrap);
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text();
+        }).toArray().join('\n');
+        var ta = document.createElement('textarea');
+        var range = document.createRange(); //For Chrome
+        var sel = window.getSelection(); //For Chrome
+        var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+        ta.style.top = yPosition + 'px'; //Prevent page scroll
+        ta.style.position = 'absolute';
+        ta.style.opacity = '0';
+        ta.value = code;
+        ta.textContent = code; //For FireFox
+        ta.contentEditable = true;
+        ta.readOnly = false;
+        document.body.appendChild(ta);
+        range.selectNode(ta);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        ta.setSelectionRange(0, code.length);
+        var result = document.execCommand('copy');
+        
+          if (result) $(this).text('复制成功');
+          else $(this).text('复制失败');
+        
+        ta.blur(); //For iOS
+        $(this).blur();
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn');
+        setTimeout(function () {
+          $b.text('复制');
+        }, 300);
+      }).append(e);
+    })
+  </script>
+
+
+  
+
+  <link rel="stylesheet" href="/lib/prettify/skins/.css" type="text/css">
+<script src="/lib/prettify/prettify.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+      prettyPrint();
+  });
+</script>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
