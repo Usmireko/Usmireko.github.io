@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="author" content="Usmireko">
     
+    <meta name="description" content="东方众+OIer">
+    
     
     
     
@@ -42,7 +44,7 @@
     <!--<script type="text/javascript">
       if (document.images) {
         var avatar = new Image();
-        avatar.src = '/imgs/source/imgs/logo.png'
+        avatar.src = '/imgs/logo.png'
         var previews = 'preview1.jpg,preview2.jpg,preview3.jpg,preview4.jpg'.split(',')
         var previewsPreLoad = []
         for(var i = 0; i < length; i++) {
@@ -66,6 +68,24 @@
 </section>
     <!-- 欧尼酱功能, 谁用谁知道 -->
     
+    <div class="gal-menu gal-dropdown">
+    <div class="circle" id="gal">
+        <div class="ring">
+            <a href="http://yoursite.com" class="menuItem" style="left: 50%; top: 15%;">首页</a>
+            
+            <a class="menuItem" style="left: 80.3109%; top: 32.5%;">下一页</a>
+            
+            <a href="/archives" class="menuItem" style="left: 80.3109%; top: 67.5%;">归档</a>
+            <a href="/about" class="menuItem" style="left: 50%; top: 85%;">关于</a>
+            <a href="/message" class="menuItem" style="left: 19.6891%; top: 67.5%;">留言板</a>
+            
+            <a class="menuItem" style="left: 19.6891%; top: 32.5%;">上一页</a>
+            
+        </div>
+        <audio id="audio" src="/imgs/oni.mp3"></audio>
+    </div>
+</div>
+    
     <header class="navbar navbar-inverse" id="gal-header">
     <div class="container">
         <div class="navbar-header">
@@ -74,17 +94,18 @@
             </button>
             <a href="http://yoursite.com">
                 
-                <!-- 这里background使用imgs/${logo_image}(路径文件名) -->
                 <style>
                     #gal-header .navbar-brand {
-                        width: 200px;
-                        height: 50px;
-                        display: block;
-                        background: url('/imgs/source/imgs/logo.png') no-repeat;
+                        height: 54px;
+                        line-height: 24px;
+                        font-size: 28px;
+                        opacity: 1;
+                        background-color: rgba(0,0,0,0);
+                        text-shadow: 0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #228DFF,0 0 35px #228DFF,0 0 40px #228DFF,0 0 50px #228DFF,0 0 75px #228DFF;
                     }
                 </style>
-                    
-                <div class="navbar-brand"></div>
+                <!-- 这里使用文字(navbar_text or config.title) -->
+                <div class="navbar-brand">Usmirekoのblog</div>
                 
             </a>
         </div>
@@ -229,7 +250,7 @@
                 <a href="/2019/03/22/Untitled/">
                     <div class="img">
                         
-                        <img src="/imgs/preview/preview4.jpg" alt="Hexo的伪进阶教程">
+                        <img src="/imgs/preview/preview1.jpg" alt="Hexo的伪进阶教程">
                     </div>
                     <div class="info">
                         
@@ -324,7 +345,7 @@
                 <a href="/2019/03/12/回文自动机/">
                     <div class="img">
                         
-                        <img src="/imgs/preview/preview4.jpg" alt="回文自动机">
+                        <img src="/imgs/preview/preview1.jpg" alt="回文自动机">
                     </div>
                     <div class="info">
                         
@@ -410,7 +431,7 @@
                 <a href="/2019/03/06/hello-world/">
                     <div class="img">
                         
-                        <img src="/imgs/preview/preview4.jpg" alt="Hello World">
+                        <img src="/imgs/preview/preview1.jpg" alt="Hello World">
                     </div>
                     <div class="info">
                         
@@ -446,7 +467,7 @@
             <p style="text-align: center;">
                 <a href="/2019/03/06/hello-world/">
                     
-                    <img src="/imgs/preview/preview3.jpg" alt="Hello World">
+                    <img src="/imgs/preview/preview1.jpg" alt="Hello World">
                 </a>
             </p>
         </div>
@@ -504,8 +525,9 @@
             <i class="fa fa-quote-right"></i>
         </div>
         <div class="author-panel text-center">
-            <img src="/imgs/source/imgs/logo.png" width="140" height="140" alt="个人头像" class="author-image">
-            <p class="author-description"></p>
+            <img src="/imgs/logo.png" width="140" height="140" alt="个人头像" class="author-image">
+            <p class="author-description"></p><p>东方众+OIer</p>
+<p></p>
         </div>
     </div>
 </aside>
@@ -523,18 +545,6 @@
 </aside>
     
     <!-- 要配置好leancloud才能开启此小工具 -->
-    
-    <aside id="sidebar-hot_posts">
-    <div class="panel panel-gal hot hidden-xs" data-aos="fade-up" data-aos-duration="2000">
-        <div class="panel-heading">
-            <i class="fa fa-fire"></i>
-            最热文章
-            <i class="fa fa-times-circle panel-remove"></i>
-            <i class="fa fa-chevron-circle-up panel-toggle"></i>
-        </div>
-        <ul class="list-group list-group-flush"></ul>
-    </div>
-</aside>
     
     
     <aside id="sidebar-recent_posts">
@@ -628,9 +638,9 @@
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/代码/" style="font-size: 14.21289762620475px;" class="tag-cloud-link">代码</a>
+    <a href="/tags/代码/" style="font-size: 14.331992663110743px;" class="tag-cloud-link">代码</a>
     
-    <a href="/tags/博客搭建/" style="font-size: 10.5022435617776px;" class="tag-cloud-link">博客搭建</a>
+    <a href="/tags/博客搭建/" style="font-size: 12.39106634773104px;" class="tag-cloud-link">博客搭建</a>
     
 </div>
                 
@@ -736,6 +746,8 @@
 </script>
 <script src="/js/hs.js"></script>
 <script src="/js/blog.js"></script>
+
+<script src="/js/oni.js"></script>
 
 
 <script>
