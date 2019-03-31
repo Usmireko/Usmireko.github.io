@@ -12,7 +12,7 @@
     
     
     
-    <title>回文自动机 | Usmirekoのblog</title>
+    <title>preview | Usmirekoのblog</title>
     <link href="”http://yoursite.com“" rel="”prefetch”">
 
     <link rel="stylesheet" href="/css/bootstrap.min.css">
@@ -194,38 +194,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 gal-right" id="mainstay">
-                    
+                    <!-- 搜索页面(尽可能接近ZanBlog搜索功能) -->
+
+
 <article class="article well article-body" id="article">
-    <div class="breadcrumb">
-        <i class="fa fa-home"></i>
-        <a href="http://yoursite.com">Usmirekoのblog</a>
-        >
-        <span>回文自动机</span>
-    </div>
     <!-- 大型设备详细文章 -->
     <div class="hidden-xs">
         <div class="title-article">
             <h1>
-                <a href="/2019/03/12/回文自动机/">回文自动机</a>
+                <a href="/preview/index.html">preview</a>
             </h1>
         </div>
         <div class="tag-article">
-            
             <span class="label label-gal">
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/代码/">代码</a>
-                
+                <i class="fa fa-calendar"></i> 2019-03-31
             </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-calendar"></i> 2019-03-12
-            </span>
-            
-            <span class="label label-gal">
-                <i class="fa fa-eye"></i>
-            </span>
-            
         </div>
     </div>
     <!-- 小型设备详细文章 -->
@@ -233,137 +216,16 @@
         <center>
             <div class="title-article">
                 <h4>
-                    <a href="/2019/03/12/回文自动机/">回文自动机</a>
+                    <a href="/preview/index.html">preview</a>
                 </h4>
             </div>
             <p>
-                <i class="fa fa-calendar"></i> 2019-03-12
-            </p>
-            <p>
-                
-                <i class="fa fa-tags"></i>
-                
-                <a href="/tags/代码/">代码</a>
-                
-                
-                
-                <i class="fa fa-eye"></i>
-                
+                <i class="fa fa-calendar"></i> 2019-03-31
             </p>
         </center>
     </div>
     <div class="content-article">
-        <p>回文自动机是一种专门处理回文串问题的数据结构，于2014年于俄罗斯提出（战斗民族自动机）。事实上，对于大部分回文串问题，可以用manacher算法A掉，但是对于那些懒得想乱搞，只喜欢用暴力方法骗分的蒟蒻（对就是在说我），回文自动机是一个非常好的选择。其优秀的nlogn时间复杂度和强大的处理能力使许多需要manacher+乱搞的题变成了回文自动机裸题。</p>
-<p>好，那么就让我们一起看一看三大有限机之一—–回文自动机的工作原理吧</p>
-<p>1.回文自动机的前置技能</p>
-<p>如果你了解AC自动机，那么理解fail指针部分应该不需要花费太多时间。如果你不会AC自动机，那么你需要了解KMP算法中next数组的原理</p>
-<p>如果你什么都不知道，而且懒得去看博客，那么你可能需要背板子了（没错就是在说我）</p>
-<p>2.回文自动机的组成</p>
-<p>回文自动机由一颗奇回文树和一颗偶回文树构成，每个节点代表一个回文子串，节点间用fail指针相连</p>
-<p>3.回文自动机的内部构造</p>
-<p>(1)回文自动机的组成部分</p>
-<pre><code class="C++">const long long maxn=300005;
-long long s[maxn],next[maxn][26],len[maxn],cnt[maxn],fail[maxn];
-long long last,p,n;
-char ss[maxn];
-</code></pre>
-<p>ss为输入的字符串，s记录新插入的节点，len[i]表示i回文串的长度，cnt[i]表示i回文串在字符串(ss)里出现的次数。</p>
-<p>last是以字符串中上一个位置(即i-1)结尾的回文串编号，p是新建节点编号，n是新加入字符编号。</p>
-<p>那么next是什么呢？看到next是不是有点熟悉？没错，它代表的就是节点i代表的回文串在两边添加字符c以后变成的回文串的编号。</p>
-<p>（所以学好KMP很重要）</p>
-<p>(2)回文自动机的初始化</p>
-<p>既然回文自动机是两棵树，那么我们就需要链式前向星来建树。。。啊，不好意思走神了。</p>
-<p>那么，还是用解释代码的方式来吧</p>
-<pre><code class="C++">void init(){
-    p=fail[0]=1;
-    last=n=0;
-    s[0]=len[1]=-1;
-}  
-</code></pre>
-<p>last,n不用解释吧</p>
-<p>s[0]=-1是向字符串里加一个没有的字符，减少特判。</p>
-<p>len[0]=0,len[1]=-1是初始化奇回文树和偶回文树的根节点长度。为什么我们把奇回文树的根节点长度设为-1呢？其实是简化之后长度为1的回文串的处理而精心构造的。（我口胡的）</p>
-<p>p=1，因为有一个节点了(0)，fail[0]=1则是用fail指针将回文树连起来。</p>
-<p>(3)回文自动机的构造方式+工作原理</p>
-<pre><code class="C++">void add(long long c){
-    c-=&#39;a&#39;;s[++n]=c;
-    long long cur=get_fail(last);
-    if(!next[cur][c]){
-        fail[++p]=next[get_fail(fail[cur])][c];
-        next[cur][c]=p;
-        len[p]=len[cur]+2;
-    }
-    last=next[cur][c];
-    ++cnt[last];
-}
-</code></pre>
-<p>哇，回文自动机核心竟然这~么短！惊不惊喜意不意外！</p>
-<p>咳，说正事。这就是回文自动机的内部结构了。首先传进来一个字符，将它放进s里，编号n+1。</p>
-<p>然后。。。诶怎么有个get_fail函数?</p>
-<pre><code class="C++">long long get_fail(long long x){
-    while(s[n-len[x]-1]!=s[n])x=fail[x];
-    return x;
-}
-</code></pre>
-<p>学过ac自动机的小朋友一定对fail有很深的印象吧。事实上，回文自动机也是通过fail指针失配后回跳到上一个节点继续匹配的。get_fail函数就是判断回跳到的节点所代表的串是否为回文串，如果不是则继续跳，直到回到合法节点。</p>
-<p>那么，当我们找出last的fail指针指向的节点（回文串）后，检查向它收尾加入c字符后形成的字符串是否已经存在。若不存在，则新建节点（节点编号p+1），该节点的fail指针指向向当前节点的fail指针指向的节点的fail指针指向的节点尾加入c字符后形成的节点（大家：你在说什么）。</p>
-<p>这是什么呢？让我们好好想一想。用代码来说，cur是当前节点编号最大的节点的失配节点，那么，如果next[cur][c]存在，它就和last相等了。不存在，就新建节点，并将其保存在其中。然后，由于cur是个字符串，所以不能把c+cur的fail指向fail[cur]（要不然就不是奇偶回文树了），而是get_fail(fail[cur])。</p>
-<p>然后就是加边，更新长度。最后记一下last，节点为last的数量++</p>
-<p>当然，这样求出来的数量并非真实数量（因为大字符串可以包含小字符串），所以我们还需要count函数，倒着加一遍。</p>
-<pre><code class="C++">long long count(){
-    for(long long i=p;i&gt;=0;--i){
-        cnt[fail[i]]+=cnt[i];
-    }
-}
-</code></pre>
-<p>4.回文自动机求出的结果</p>
-<p>说了这么多，回文自动机到底是求啥的？</p>
-<p>回文自动机最牛逼的地方就是可以求出一个字符串中所有不同种类的字符串（本质不同的字符串），以及每一种字符串出现的次数。</p>
-<p>所以，凡是遇到回文串的题，用回文自动机扫过去，就可以将一个充满回文子串的毒瘤字符串扒的一干二净（迫真战斗民族）。</p>
-<p>最后放个代码我就跑了（</p>
-<pre><code class="C++">#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-#include&lt;cstring&gt;
-const long long maxn=300005;
-long long s[maxn],next[maxn][26],len[maxn],cnt[maxn],num[maxn],fail[maxn];
-long long last,p,n;
-char ss[maxn];
-void init(){
-    p=1,last=0,n=0,s[0]=-1,fail[0]=1,len[1]=-1;
-}
-
-long long get_fail(long long x){
-    while(s[n-len[x]-1]!=s[n])x=fail[x];
-    return x;
-}
-
-void add(long long c){
-    c-=&#39;a&#39;;s[++n]=c;
-    long long cur=get_fail(last);
-    if(!next[cur][c]){
-        fail[++p]=next[get_fail(fail[cur])][c];
-        next[cur][c]=p;
-        len[p]=len[cur]+2;
-    }
-    last=next[cur][c];
-    ++cnt[last];
-}
-
-long long count(){
-    for(long long i=p;i&gt;=0;--i){
-        cnt[fail[i]]+=cnt[i];
-    }
-}
-
-int main(){
-    scanf(&quot;%s&quot;,ss);
-    long long len=strlen(ss);
-    init();
-    for(long long i=0;i&lt;len;i++)add(ss[i]);
-    printf(&quot;%lld&quot;,count());
-}
-</code></pre>
-
+        
     </div>
 </article>
 
@@ -373,9 +235,10 @@ int main(){
 <script>
 	if(!window.commentConfig) {
       window.commentConfig = {}
-      window.commentConfig.title = '回文自动机'
+      window.commentConfig.title = 'preview'
     }
 </script>
+
 
                 </div>
                 <aside class="col-md-4 gal-left" id="sidebar">
@@ -493,17 +356,17 @@ int main(){
 
                 
                 <li>
-                    <a href="/2019/03/12/回文自动机/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
+                    <a href="/preview/index.html#sidebar-tags" data-toggle="tab" id="tags-tab">热门标签</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/03/12/回文自动机/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
+                    <a href="/preview/index.html#sidebar-friend-links" data-toggle="tab" id="friend-links-tab">友情链接</a>
                 </li>
                 
                 
                 <li>
-                    <a href="/2019/03/12/回文自动机/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
+                    <a href="/preview/index.html#sidebar-links" data-toggle="tab" id="links-tab">个人链接</a>
                 </li>
                 
             </ul>
@@ -511,9 +374,9 @@ int main(){
                 
                 <div class="cloud-tags tab-pane nav bs-sidenav fade" id="sidebar-tags">
     
-    <a href="/tags/代码/" style="font-size: 8.789940457291967px;" class="tag-cloud-link">代码</a>
+    <a href="/tags/代码/" style="font-size: 12.091345813864532px;" class="tag-cloud-link">代码</a>
     
-    <a href="/tags/博客搭建/" style="font-size: 8.783816807083806px;" class="tag-cloud-link">博客搭建</a>
+    <a href="/tags/博客搭建/" style="font-size: 9.57710625534426px;" class="tag-cloud-link">博客搭建</a>
     
 </div>
                 
@@ -633,7 +496,7 @@ int main(){
 <script src="https://myau.moe/js/comment/gitment.browser.js"></script>
 <script>
     if(window.commentConfig) {
-      window.commentConfig.id = 'Tue Mar 12 2019 13:19:00 GMT+0800'
+      window.commentConfig.id = 'Sun Mar 31 2019 00:15:30 GMT+0800'
       window.commentConfig.owner = 'Usmireko'
       window.commentConfig.repo = 'plece'
       window.commentConfig.client_id = '0836c44a11716bf85b28'
@@ -641,7 +504,7 @@ int main(){
       window.commentConfig.redirect_uri = ''
     } else {
       window.commentConfig = {
-      	id: 'Tue Mar 12 2019 13:19:00 GMT+0800',
+      	id: 'Sun Mar 31 2019 00:15:30 GMT+0800',
         owner: 'Usmireko',
         repo: 'plece',
         client_id: '0836c44a11716bf85b28',
